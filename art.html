@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050807" />
+    <title>GLITCH CITY — Generative Art</title>
+    <style>
+      /* Dark mode color scheme */
+      :root { color-scheme: dark; }
+
+      /* Global reset */
+      * { box-sizing: border-box; }
+      html, body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #050807;
+      }
+      body { font-family: Arial, sans-serif; }
+
+      /* Canvas styling - full screen centered */
+      canvas {
+        height: 100vh !important;
+        left: 50%;
+        max-width: 100vw;
+        object-fit: contain;
+        position: fixed !important;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw !important;
+      }
+
+      /* Control buttons styling */
+      .controls {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+        left: 0;
+        padding: 20px;
+        pointer-events: none;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 5;
+      }
+
+      .controls a, .controls button {
+        background: rgba(5, 8, 7, .78);
+        border: 1px solid rgba(216, 255, 65, .8);
+        color: #d8ff41;
+        cursor: pointer;
+        font: 10px/1 Arial, sans-serif;
+        letter-spacing: .08em;
+        padding: 12px 14px;
+        pointer-events: auto;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background .2s, color .2s;
+      }
+
+      .controls a:hover, .controls button:hover {
+        background: #d8ff41;
+        color: #050807;
+      }
+
+      .right-controls { display: flex; gap: 8px; }
+
+      /* Mobile responsive */
+      @media (max-width: 540px) {
+        .controls { padding: 12px; }
+        .controls a, .controls button {
+          font-size: 9px;
+          padding: 10px;
+        }
+        .right-controls { gap: 5px; }
+      }
+    </style>
+    <!-- Load p5.js library from local folder for offline access -->
+    <script src="libraries/p5.min.js"></script>
+  </head>
+  <body>
+    <!-- Control buttons for artwork -->
+    <div class="controls" aria-label="Artwork controls">
+      <a href="index.html#artwork">← Back to site</a>
+      <div class="right-controls">
+        <button type="button" onclick="window.location.reload()">
+          Refresh
+        </button>
+        <button type="button" onclick="saveCanvas('glitch-city-generative-art', 'png')">
+          Capture
+        </button>
+      </div>
+    </div>
+    <!-- Load artwork assets and sketch -->
+    <script src="libraries/art-assets.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
